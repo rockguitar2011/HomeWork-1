@@ -32,6 +32,14 @@ public abstract class Animal {
     }
 
     private String getAgeSuffix() {
-
-    };
+    int remainder10 = age % 10;
+    int remainder100 = age % 100;
+    if (remainder10 == 1 && remainder100 != 11) {
+        return "Год";
+    }
+    if (remainder10 >= 2 && remainder10 <= 4 && remainder100 != 12 && remainder100 != 13 && remainder100 != 14) {
+        return "Года";
+    }
+    return "Лет";
+    }
 }

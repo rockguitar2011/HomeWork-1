@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public enum Command {
+    add,
+    list,
+    exit;
+
+    static List<String> NAMES = collectNames();
+
+    private static List<String> collectNames() {
+        List<String> result = new ArrayList<>();
+        for (Command command : Command.values()) {
+            result.add(command.name());
+        }
+        return result;
+    }
+
+    public static boolean notContaint (String value) {
+        if (value == null) {
+            return true;
+        }
+        return !NAMES.contains(value.toUpperCase().trim());
+    }
+
+    public static Command fromString(String value) {
+        return Command.valueOf(value.toUpperCase().trim());
+    }
+}
